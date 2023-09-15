@@ -29,7 +29,7 @@ while i < len(secret_word):
     alternate_i: int = 0
 
     # while loop to check for yellow boxes
-    while wrong_i != True and alternate_i < len(secret_word):
+    while wrong_i is not True and alternate_i < len(secret_word):
         if secret_word[alternate_i] == user_word[i]:
             wrong_i = True
         else:
@@ -38,7 +38,7 @@ while i < len(secret_word):
     # elif statements to concatenate to str
     if user_word[i] == secret_word[i]:
         emoji_guess += GREEN_BOX
-    elif wrong_i == True:
+    elif wrong_i is True:
         emoji_guess += YELLOW_BOX
     else:
         emoji_guess += WHITE_BOX
