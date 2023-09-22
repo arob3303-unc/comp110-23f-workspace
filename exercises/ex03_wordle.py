@@ -7,9 +7,10 @@ WHITE_BOX: str = "\U00002B1C"
 GREEN_BOX: str = "\U0001F7E9"
 YELLOW_BOX: str = "\U0001F7E8"
 
+
 # contains_char function
 def contains_char(word: str, character: str) -> bool:
-    """returns True if the letter given is found in the word (False if not)"""
+    """Returns True if the letter given is found in the word (False if not)."""
     assert len(character) == 1
 
     i: int = 0  # counter
@@ -21,9 +22,10 @@ def contains_char(word: str, character: str) -> bool:
         i += 1
     return False
 
+
 # emojified function
 def emojified(guess: str, secret: str) -> str:
-    """Assigns the emojis in the right spot to let the guesser know if their guessed word is close"""
+    """Assigns the emojis in the right spot to let the guesser know if their guessed word is close."""
     assert len(guess) == len(secret)  # User's guess has to equal secret word
     
     empty_str: str = ""  # String that will hold the emoji boxes
@@ -43,6 +45,7 @@ def emojified(guess: str, secret: str) -> str:
 
     return empty_str
 
+
 # input_guess function
 def input_guess(num: int) -> str:
     """User enter's their guessed word and it has to be the correct length, if not they try again"""
@@ -54,10 +57,10 @@ def input_guess(num: int) -> str:
 
     return word
 
+
 # main function - runs the wordle game!
 def main() -> None:
     """The entrypoint of the program and main game loop."""
-    
     # Variables
     secret_word: str = "codes"  # Game's secret word
     turn_num_max: int = 6  # Max turns
@@ -81,6 +84,7 @@ def main() -> None:
             print("X/6 - Sorry, try again tomorrow!")
         
         turn_num += 1
+
 
 if __name__ == "__main__":
     main()
