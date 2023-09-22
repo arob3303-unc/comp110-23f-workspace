@@ -48,8 +48,7 @@ def emojified(guess: str, secret: str) -> str:
 
 # input_guess function
 def input_guess(num: int) -> str:
-    """User enter's their guessed word and it has to be the correct length, if not they try again"""
-
+    """User enter's their guessed word and it has to be the correct length, if not they try again."""
     word: str = input(f"Enter a {num} character word: ")  # user enter's their word (guess)
 
     while num != len(word):
