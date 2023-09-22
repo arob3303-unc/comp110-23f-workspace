@@ -45,10 +45,14 @@ def emojified(guess: str, secret: str) -> str:
 
 # input_guess function
 def input_guess(num: int) -> str:
+    """User enter's their guessed word and it has to be the correct length, if not they try again"""
+
     word: str = input(f"Enter a {num} character word: ") # user enter's their word (guess)
+
     while num != len(word):
         word = input(f"That wasn't {num} chars! Try again: ") # user tries again if not correct length
-    return word 
+        
+    return word
 
 # main function - runs the wordle game!
 def main() -> None:
@@ -71,10 +75,8 @@ def main() -> None:
         # elif to let user know if they won/lost
         if secret_word == guess_word:
             print(f"You won in {turn_num}/{turn_num_max} turns!")
-            quit()
         elif turn_num == turn_num_max:
             print("X/6 - Sorry, try again tomorrow!")
-            quit()
         
         turn_num += 1
 
