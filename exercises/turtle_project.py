@@ -2,10 +2,9 @@
 
 __author__ = "730717463"
 
-from turtle import Turtle, tracer, update, colormode, done
-colormode(255)
+from turtle import Turtle, update, colormode, done
 from random import randint
-
+colormode(255)
 
 # Divide the turtle in four sections
 def four_sec(t: Turtle, x: float, y: float) -> None:
@@ -32,7 +31,7 @@ def four_sec(t: Turtle, x: float, y: float) -> None:
     t.end_fill()
     
     # Top Right Square
-    t.fillcolor(101, 199, 227) # light blue
+    t.fillcolor(101, 199, 227)  # light blue
     t.begin_fill()
     i2: int = 0  # index counter
 
@@ -83,8 +82,6 @@ def arrow(t: Turtle, x: float, y: float) -> None:
     t.width(10)
     t.ht()
     t.right(180)
-
-
 
     # The Arrow
     t.begin_fill()
@@ -147,7 +144,6 @@ def america(t: Turtle, x: float, y: float) -> None:
         t.goto(x, y)
         t.pendown()
         t.right(rotation)
-
         i: int = 0  # index counter
 
         # loop creates an uneven rectangle
@@ -170,14 +166,13 @@ def america(t: Turtle, x: float, y: float) -> None:
     # Red Stripe 2
     red_stripe(t, x + 75, y - 100, 500, 40, 0)
     # Red Stripe 3
-    red_stripe(t, x + 112.5, y + 50, 250, 40, 180) # Stripes go down - 180 change in rotation
+    red_stripe(t, x + 112.5, y + 50, 250, 40, 180)  # Stripes go down - 180 change in rotation
     # Red Stripe 4
     red_stripe(t, x + 187.5, y + 50, 200, 40, 0)
     # Red Stripe 5
     red_stripe(t, x + 262.5, y + 50, 325, 40, 0)
     # Red Stripe 6
     red_stripe(t, x + 337.5, y + 50, 275, 40, 0)
-
 
     # blue square for stars
     t.fillcolor(13, 18, 124)
@@ -225,7 +220,7 @@ def america(t: Turtle, x: float, y: float) -> None:
             y1 += 40
             i += 1
     
-    t.right(90) # Rotate Turtle to correct side for stars
+    t.right(90)  # Rotate Turtle to correct side for stars
 
     # Starting points for stars
     xx: float = 277.5
@@ -245,6 +240,7 @@ def america(t: Turtle, x: float, y: float) -> None:
     stars(t, xx + 187.5, yy + 25)
     # Row 7
     stars(t, xx + 225, yy)
+
 
 # Draw's the third logo (24 - The Show)
 def jack(t: Turtle, x: float, y: float) -> None:
@@ -270,14 +266,14 @@ def jack(t: Turtle, x: float, y: float) -> None:
         t.begin_fill()
         t.goto(x, y)
         
-        if long == True:  # creates a longer rectangle if True
+        if long is True:  # creates a longer rectangle if True
             while i < 2:
                 t.forward(150)
                 t.right(90)
                 t.forward(35)
                 t.right(90)
                 i += 1
-        if long == False:  # creates a shorter rectangle if False
+        if long is False:  # creates a shorter rectangle if False
             while i < 2:
                 t.forward(75)
                 t.right(90)
@@ -302,7 +298,7 @@ def jack(t: Turtle, x: float, y: float) -> None:
 
 # Draw's the 4th logo (Creeper Face)
 def creeper_head(t: Turtle, x: float, y: float) -> None:
-    """Draws a creeper head from the game Minecraft"""
+    """Draws a creeper head from the game Minecraft."""
     # Setup for the logo
     t.penup()
     t.goto(x, y)
@@ -337,26 +333,26 @@ def creeper_head(t: Turtle, x: float, y: float) -> None:
                 t.fillcolor(122, 234, 75)
 
             t.begin_fill()
-            i: int = 0
+            i1: int = 0
 
             # while loop that creates green squares
-            while i < 4:
+            while i1 < 4:
                 t.forward(NUM_1)
                 t.left(90)
-                i += 1
+                i1 += 1
             t.end_fill()
 
         # assigns the color black to the square and creates the loop for square
         elif color == "Black":
             t.fillcolor("Black")
             t.begin_fill()
-            i: int = 0
+            i2: int = 0
 
             # loop creates the black squares
-            while i < 4:
+            while i2 < 4:
                 t.forward(NUM_1)
                 t.left(90)
-                i += 1
+                i2 += 1
             t.end_fill()
     
     # Place the squares (Grid)
@@ -373,7 +369,7 @@ def creeper_head(t: Turtle, x: float, y: float) -> None:
     x7: float = x
     x8: float = x
 
-    #y-axis values
+    # y-axis values
     y1: float = y
     y2: float = y - NUM_1
     y3: float = y - NUM_1 * 2
@@ -532,6 +528,7 @@ def main() -> None:
 
     update()
     done()  # turtle done drawing
+
 
 if __name__ == "__main__":
     main()
