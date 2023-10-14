@@ -6,6 +6,7 @@ from turtle import Turtle, update, colormode, done
 from random import randint
 colormode(255)
 
+
 # Divide the turtle in four sections
 def four_sec(t: Turtle, x: float, y: float) -> None:
     """Divides the turtle screen into four sections for background color."""
@@ -134,7 +135,6 @@ def america(t: Turtle, x: float, y: float) -> None:
     t.width(1)
     t.ht()
     t.right(270)
-
 
     # Red Stripe Function
     def red_stripe(t: Turtle, x: float, y: float, f1: float, f2: float, rotation: float) -> None:
