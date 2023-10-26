@@ -19,3 +19,18 @@ def invert(original_dict: dict[str, str]) -> dict[str, str]:
     return new_dict
 
 
+def favorite_color(color_dict: dict[str, str]) -> str:
+    """Returns the color that appears the most."""
+    fav_color: str = ""  # Holds the favorite color
+    color: list[str] = []
+    
+    for key in color_dict:
+        color.append(color_dict[key])
+        for i in color:
+            if i == color_dict[key]:
+                i
+
+    print(color)
+print(favorite_color({"Marc": "yellow", "Ezri": "blue", "Kris": "blue"}))
+
+
