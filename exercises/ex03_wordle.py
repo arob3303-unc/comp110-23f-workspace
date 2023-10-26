@@ -61,7 +61,7 @@ def input_guess(num: int) -> str:
 def main() -> None:
     """The entrypoint of the program and main game loop."""
     # Variables
-    secret_word: str = ""  # Game's secret word
+    secret_word: str = "codes"  # Game's secret word
     turn_num_max: int = 6  # Max turns
     turn_num: int = 1  # Current # of turns
 
