@@ -22,15 +22,16 @@ def invert(original_dict: dict[str, str]) -> dict[str, str]:
 def favorite_color(color_dict: dict[str, str]) -> str:
     """Returns the color that appears the most."""
     fav_color: str = ""  # Holds the favorite color
+    color_counter: int = 0
 
     for key in color_dict:
-        print(color_dict[key])
         if color_dict[key] in color_dict:
+
             
 
 
 
-            print(color_dict)
+        #print(color_dict)
 print(favorite_color({"Marc": "yellow", "Ezri": "blue", "Kris": "blue"}))
 
 
@@ -45,6 +46,11 @@ def count(list_1: list[str]) -> dict[str, int]:
             new_dict[i] = 1
     return new_dict
 
-print(count(["a", "a", "a", "b", "c", "c"]))
-    
+#print(count(["a", "a", "a", "b", "c", "c"]))
 
+
+def alphabetizer(list1: list[str]) -> dict[str, list[str]]:
+    """The words will be assigned to their starting letter (key)."""
+
+    for i in list1:
+        while 
