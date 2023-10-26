@@ -14,7 +14,7 @@ def invert(original_dict: dict[str, str]) -> dict[str, str]:
         
     # raises key error if length of dict is shortened due to same key value!
     if len(original_dict) != len(new_dict):
-        raise KeyError("KeyError!")
+        raise KeyError("Not allowed to have same key value.")
        
     return new_dict
 
@@ -22,15 +22,29 @@ def invert(original_dict: dict[str, str]) -> dict[str, str]:
 def favorite_color(color_dict: dict[str, str]) -> str:
     """Returns the color that appears the most."""
     fav_color: str = ""  # Holds the favorite color
-    color: list[str] = []
-    
-    for key in color_dict:
-        color.append(color_dict[key])
-        for i in color:
-            if i == color_dict[key]:
-                i
 
-    print(color)
+    for key in color_dict:
+        print(color_dict[key])
+        if color_dict[key] in color_dict:
+            
+
+
+
+            print(color_dict)
 print(favorite_color({"Marc": "yellow", "Ezri": "blue", "Kris": "blue"}))
 
+
+def count(list_1: list[str]) -> dict[str, int]:
+    """Counts the number of times the same value appears."""
+    # empty dictionary
+    new_dict: dict[str, int] = {}
+    for i in list_1:
+        if i in new_dict:
+            new_dict[i] += 1
+        else:
+            new_dict[i] = 1
+    return new_dict
+
+print(count(["a", "a", "a", "b", "c", "c"]))
+    
 
