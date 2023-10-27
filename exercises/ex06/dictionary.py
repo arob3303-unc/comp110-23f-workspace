@@ -1,4 +1,4 @@
-"""Functions with dictionaries"""
+"""Functions with dictionaries."""
 
 __author__ = "730717463"
 
@@ -79,6 +79,7 @@ def alphabetizer(list1: list[str]) -> dict[str, list[str]]:
             if key == i[0].lower():  # if key equals the starting letter, assigns the value to key
                 new_dict[key].append(i)  # appends it since it is a list
     return new_dict
+
 
 def update_attendance(attendance_log: dict[str, list[str]], day: str, student: str) -> dict[str, list[str]]:
     """Updates the attendance log (dictionary)."""
