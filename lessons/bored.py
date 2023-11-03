@@ -27,3 +27,6 @@ else:
         print("A")
 if n + 1 < 8:
     print("B")
+
+idk: list[str] = ['hey', 'b', 'c', 'd']
+print(len(idk))
