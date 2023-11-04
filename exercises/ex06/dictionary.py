@@ -17,6 +17,7 @@ def invert(original_dict: dict[str, str]) -> dict[str, str]:
         raise KeyError("Not allowed to have same key value.") 
     return new_dict
 
+#print(invert({"key": "sam", "car": "sam", "door": "one"}))
 
 def favorite_color(color_dict: dict[str, str]) -> str:
     """Returns the color that appears the most."""
@@ -65,7 +66,7 @@ def count(list_1: list[str]) -> dict[str, int]:
 
 
 def alphabetizer(list1: list[str]) -> dict[str, list[str]]:
-    """The words will be assigned to their starting letter (key)."""
+    """The words will be assigned to their starting key letter."""
     # empty dictionary
     new_dict: dict[str, list[str]] = {}
 
