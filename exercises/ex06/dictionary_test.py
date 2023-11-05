@@ -1,5 +1,11 @@
 """EX07 - Testing EX06 functions."""
-from exercises.ex06.dictionary import *
+import pytest
+from exercises.ex06.dictionary import invert
+from exercises.ex06.dictionary import favorite_color
+from exercises.ex06.dictionary import count
+from exercises.ex06.dictionary import alphabetizer
+from exercises.ex06.dictionary import update_attendance
+
 __author__ = "730717463"
 
 
@@ -11,16 +17,13 @@ def test_empty_dict_i() -> None:
 
 def test_three_keys() -> None:
     """Returns swapped dictionary."""
-    assert invert({"key": "sam", 
-                   "car": "two", 
-                   "door": "one"}) == {"sam": "key", 
-                                       "two": "car", 
-                                       "one": "door"}
+    assert invert({"key": "sam", "car": "two", "door": "one"}) == {"sam": "key", "two": "car", "one": "door"}
 
 
 def test_sentence() -> None:
     """Returns a swapped dictionary of length one."""
-    assert invert({"This will be a value.": "This will be a key."})
+    with pytest.raises(KeyError):
+        invert({'car': 'toyota', 'truck': 'toyota'})
 
 
 # tests for favorite_color function
@@ -31,22 +34,12 @@ def test_empty_dict_fc() -> None:
 
 def test_returns_fav() -> None:
     """Returns the favorite color."""
-    assert favorite_color({"Austin": "Green",
-                           "Jacob": "Blue",
-                           "Sam": "Yellow",
-                           "Carl" : "Blue",
-                           "Scott" : "Blue",
-                           "John": "Yellow"}) == "Blue"
+    assert favorite_color({"Austin": "Green", "Jacob": "Blue", "Sam": "Yellow", "Carl": "Blue", "Scott": "Blue", "John": "Yellow"}) == "Blue"
 
 
 def test_fav_word() -> None:
     """Returns favorite word, even if it is not a color."""
-    assert favorite_color({"Austin": "Green",
-                           "Jacob": "Car",
-                           "Sam": "Yellow",
-                           "Carl" : "Car",
-                           "Scott" : "Car",
-                           "John": "Yellow"}) == "Car"
+    assert favorite_color({"Austin": "Green", "Jacob": "Car", "Sam": "Yellow", "Carl": "Car", "Scott": "Car", "John": "Yellow"}) == "Car"
 
 
 # tests count function
@@ -57,12 +50,7 @@ def test_empty_list_c() -> None:
 
 def test_count_right() -> None:
     """Tests to see if it is correct."""
-    assert count(["Awesome",
-                   "Awesome",
-                   "Cool",
-                   "Cool",
-                   "Cool",
-                   "Sad"]) == {"Awesome": 2, "Cool": 3, "Sad": 1}
+    assert count(["Awesome", "Awesome", "Cool", "Cool", "Cool", "Sad"]) == {"Awesome": 2, "Cool": 3, "Sad": 1}
 
 
 def test_letter() -> None:
@@ -78,20 +66,12 @@ def test_empty_list_a() -> None:
 
 def test_alpha_uppercase() -> None:
     """Tests to see if function works with uppercase."""
-    assert alphabetizer(["Car", "Carrot", 
-                         "House", "Hose", 
-                         "Cart", "Toy"]) == {"c": ["Car", "Carrot", "Cart"], 
-                                             "h": ["House", "Hose"], 
-                                             "t": ["Toy"]}
+    assert alphabetizer(["Car", "Carrot", "House", "Hose", "Cart", "Toy"]) == {"c": ["Car", "Carrot", "Cart"], "h": ["House", "Hose"], "t": ["Toy"]}
 
 
 def test_alpha_lowercase() -> None:
     """Tests to see if lowercase works."""
-    assert alphabetizer(["car", "carrot", 
-                         "house", "hose", 
-                         "cart", "toy"]) == {"c": ["car", "carrot", "cart"], 
-                                             "h": ["house", "hose"], 
-                                             "t": ["toy"]}
+    assert alphabetizer(["car", "carrot", "house", "hose", "cart", "toy"]) == {"c": ["car", "carrot", "cart"], "h": ["house", "hose"], "t": ["toy"]}
 
 
 # tests update_attendance function
@@ -102,24 +82,9 @@ def test_empty_dict_attend() -> None:
 
 def test_attend() -> None:
     """Tests to see if attend works correctly with all parameters."""
-    assert update_attendance({"Monday": ["Austin", "Sam", "Carl"],
-                               "Tuesday": ["Austin"],
-                               "Thursday": [],
-                               "Friday": ["Austin", "John"]},
-                                    "Friday", "Carl") == {"Monday": ["Austin", "Sam", "Carl"],
-                                                          "Tuesday": ["Austin"],
-                                                           "Thursday": [],
-                                                           "Friday": ["Austin", "John", "Carl"]}
+    assert update_attendance({"Monday": ["Austin", "Sam", "Carl"], "Tuesday": ["Austin"], "Thursday": [], "Friday": ["Austin", "John"]}, "Friday", "Carl") == {"Monday": ["Austin", "Sam", "Carl"], "Tuesday": ["Austin"], "Thursday": [], "Friday": ["Austin", "John", "Carl"]}
 
 
-def test_add_week() -> None:
+def test_same_name_on_day() -> None:
     """Add a week with a student."""
-    assert update_attendance({"Monday": ["Austin", "Sam", "Carl"],
-                               "Tuesday": ["Austin"],
-                               "Thursday": [],
-                               "Friday": ["Austin", "John"]},
-                                    "Wednesday", "Carl") == {"Monday": ["Austin", "Sam", "Carl"],
-                                                          "Tuesday": ["Austin"],
-                                                           "Thursday": [],
-                                                           "Friday": ["Austin", "John"],
-                                                           "Wednesday": ["Carl"]}
+    assert update_attendance({"Monday": ["Austin", "Sam"], "Tuesday": ["Austin"]}, "Tuesday", "Austin") == {'Monday': ['Austin', 'Sam'], 'Tuesday': ['Austin']}

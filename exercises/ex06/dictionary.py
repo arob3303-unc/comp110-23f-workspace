@@ -17,7 +17,6 @@ def invert(original_dict: dict[str, str]) -> dict[str, str]:
         raise KeyError("Not allowed to have same key value.") 
     return new_dict
 
-#print(invert({"key": "sam", "car": "sam", "door": "one"}))
 
 def favorite_color(color_dict: dict[str, str]) -> str:
     """Returns the color that appears the most."""
@@ -86,7 +85,18 @@ def update_attendance(attendance_log: dict[str, list[str]], day: str, student: s
     """Updates the attendance log (dictionary)."""
     # updated attendance log
     updated_log: dict[str, list[str]] = attendance_log
+    i: int = 0
 
+    # makes sure same name is entered twice on a day
+    for key in updated_log:
+        name_list: list[str] = list()
+        for x in updated_log[key]:
+            name_list.append(x)
+            i += 1
+        print(name_list)
+        if student in name_list and key == day:
+            return updated_log
+    
     # empty string to hold the days (keys)
     day_list: list[str] = []
     # for loop to make list of days (keys)
@@ -101,4 +111,3 @@ def update_attendance(attendance_log: dict[str, list[str]], day: str, student: s
         if key == day:  # if the day equals the day being recorded, student is added to the day
             updated_log[day].append(student)
     return updated_log  # returns the updated dictionary (log)
- 
