@@ -8,3 +8,5 @@ new_point = my_point.scale(3)
 print(my_point)
 
 print(new_point)
+new_point * 4.0
+print(new_point)
