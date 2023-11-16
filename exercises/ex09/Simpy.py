@@ -27,5 +27,21 @@ class Simpy:
     
     def fill(self, num: float, amount: int) -> None:
         """Makes a list with float numbers."""
+        # loop to append values
+        for i in range(amount):
+            self.values.append(num)
         
+        return None
+
+    def arange(self, start: float, stop: float, step: float = 1.0):
+        """Fill in the values attribute with a range of values."""
+        assert step != 0.0
+
+        for num in range(start, stop, step):
+            self.values.append(num)
         
+        return None
+
+twos = Simpy([])
+twos.arange(1.0, 5.0)
+print(twos)
