@@ -36,12 +36,30 @@ class Simpy:
     def arange(self, start: float, stop: float, step: float = 1.0):
         """Fill in the values attribute with a range of values."""
         assert step != 0.0
-
-        for num in range(start, stop, step):
-            self.values.append(num)
+        num = start
+        i1: int = 0
+        i2: int = 0
+        self.values.append(num)
         
-        return None
+        if (step - 1) < step:
+            while i1 < stop - step:
+                num += step
+                self.values.append(num)
+                i1 += step
+        if (step - 1) > step:
+            while i2 < stop - step:
+                num += step
+                self.values.append(num)
+                i2 += step
 
+            
+
+        
 twos = Simpy([])
-twos.arange(1.0, 5.0)
+twos.arange(-1.0, -5.0, -1.0)
 print(twos)
+
+step = -1
+start = -1
+
+print(start + step)

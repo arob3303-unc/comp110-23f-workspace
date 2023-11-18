@@ -28,9 +28,9 @@ class Node:
 
     def tail(self) -> Node | None:
         """Returns the whole dataset without head."""
-        if self.data == 0:
+        if self.next is None:
             return None
-        return Node
+        return self.next
         
     def last(self) -> int:
         """Returns the last element in linked list."""
