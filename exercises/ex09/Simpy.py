@@ -37,20 +37,14 @@ class Simpy:
         """Fill in the values attribute with a range of values."""
         assert step != 0.0
         num = start
-        i1: int = 0
-        i2: int = 0
-        self.values.append(num)
-        
-        if (step - 1) < step:
-            while i1 < stop - step:
-                num += step
-                self.values.append(num)
-                i1 += step
-        if (step - 1) > step:
-            while i2 < stop - step:
-                num += step
-                self.values.append(num)
-                i2 += step
+        while (step > 0 and num < stop) or (step < 0 and num > stop):
+            self.values.append(num)
+            num += step
+            
+    
+    def arange(self, start: float, stop: float, step: float = 1.0):
+        """Fill in the values attribute with a range of values."""
+
 
             
 
