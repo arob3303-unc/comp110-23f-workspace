@@ -37,7 +37,7 @@ class Simpy:
         """Fill in the values attribute with a range of values."""
         assert step != 0.0
 
-        i: float = 0
+        i: float = start
         plus_num: float = start
 
         while (i < (start - (stop))) or (i < stop):
@@ -52,10 +52,7 @@ class Simpy:
                 plus_num += step
                 i -= step
         
+        if self.values and self.values[-1] >= stop:
+            self.values.pop()
 
-            
-
-        
-twos = Simpy([])
-twos.arange(1.0, 5.0)
-print(twos)
+    
