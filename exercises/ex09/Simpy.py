@@ -127,13 +127,22 @@ class Simpy:
                 i += 1
         return new_list
     
-    def __getitem__(self, rhs: int) -> float:
+    def __getitem__(self, rhs: Union[int, list[bool]]) -> Union[float, Simpy]:
         """Adds subscription notation support to objects of the class."""
-        return self.values[rhs]
-
-
-a = Simpy([1.0, 1.0, 1.0])
-#print(a + 10.0)
-b = Simpy([2.0, 3.0, 4.0])
-c = a + b
-print(c)
+        new_list: list[float] = list()
+        i: int = 0
+        if type(rhs) is int:    
+            return self.values[rhs]
+        else:
+            for x in self.values:
+                print(type(rhs))
+                if type(rhs) is list:
+                    if x > rhs[i] is True:
+                        new_list.append(x)
+                if type(rhs) is bool:
+                    print(rhs)
+                    if rhs is False:
+                        new_list.append(x)
+                i += 1
+        return Simpy(new_list)
+        
