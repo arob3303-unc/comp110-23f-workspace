@@ -88,8 +88,48 @@ class Simpy:
                 i += 1
 
         return new_list
+
+    def __eq__(self, rhs: Union[float, Simpy]) -> list[bool]:
+        """Finds if each index is equal to the same index of a list or a float value."""
+        new_list: list[bool] = list()
+        i: int = 0
+        if type(rhs) is float:
+            for x in self.values:
+                if x == rhs:
+                    new_list.append(True)
+                else:
+                    new_list.append(False)
+        else:
+            for x in self.values:
+                if x == rhs.values[i]:
+                    new_list.append(True)
+                else:
+                    new_list.append(False)
+                i += 1
+        return new_list
     
+    def __gt__(self, rhs: Union[float, Simpy]) -> list[bool]:
+        """Finds if each index is equal or greater than to the same index of a different list or a float value."""
+        new_list: list[bool] = list()
+        i: int = 0
+        if type(rhs) is float:
+            for x in self.values:
+                if x > rhs:
+                    new_list.append(True)
+                else:
+                    new_list.append(False)
+        else:
+            for x in self.values:
+                if x > rhs.values[i]:
+                    new_list.append(True)
+                else:
+                    new_list.append(False)
+                i += 1
+        return new_list
     
+    def __getitem__(self, rhs: int) -> float:
+        """Adds subscription notation support to objects of the class."""
+        return self.values[rhs]
 
 
 a = Simpy([1.0, 1.0, 1.0])
