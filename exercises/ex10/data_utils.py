@@ -41,6 +41,39 @@ def head(data: dict[str, list[str]], num_rows: int) -> dict[str, list[str]]:
     # loop through for the columns
     for x in data:
         holder: list[str] = []
-        
-    
+        i: int = 0
+        while i < num_rows:
+            holder.append(data[x][i])
+            i += 1
+        result[x] = holder
+    return result
+
+def select(data: dict[str, list[str]], columns: list[str]) -> dict[str, list[str]]:
+    """Able to select the columns to look at."""
+    result: dict[str, list[str]] = {}
+
+    for i in columns:
+        result[i] = data[i]
+    return result
+
+def concat(data_one: dict[str, list[str]], data_two: dict[str, list[str]]) -> dict[str, list[str]]:
+    """Combine two tables into one single table."""
+    result: dict[str, list[str]] = {}
+    vals: str = result.keys()
+    x: int = 0
+    for i in data_one:
+        result[i] = data_one[i]
+    print(1)
+    print(result)
+    print(2)
+    for i in data_two:
+        if i == list(vals)[x]:
+            result[i] = (data_one[i])
+            print(result)
+            #print(result[i])
+            x += 1
+        else:
+            break
+    print(3)
+    return result
 
