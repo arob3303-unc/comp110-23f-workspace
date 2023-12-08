@@ -43,14 +43,15 @@ def head(data: dict[str, list[str]], num_rows: int) -> dict[str, list[str]]:
     result: dict[str, list[str]] = {}
     # loop through for the columns
     for x in data:
-        holder: list[str] = []  # holds the values
-        i: int = 0
+        try:
+            holder: list[str] = []  # holds the values
+            i: int = 0
+        except:
+            return data
         while i < num_rows:  # while loop to append the number of data rows
-            try:
-                holder.append(data[x][i])
-                i += 1
-            except IndexError:
-                return data
+            holder.append(data[x][i])
+            i += 1
+            
         result[x] = holder
     return result
 
